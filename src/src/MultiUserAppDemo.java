@@ -81,6 +81,7 @@ public class MultiUserAppDemo extends PApplet
 		 * use this code to run your PApplet from data recorded by UPDRecorder 
 		 */
 		
+<<<<<<< HEAD
 //		
 //		try 
 //		{
@@ -94,6 +95,20 @@ public class MultiUserAppDemo extends PApplet
 //		
 		kinectReader = new KinectBodyDataProvider(8008);
 
+=======
+		
+		/*try 
+		{
+			kinectReader = new KinectBodyDataProvider("test.kinect", 10);
+		} 
+		catch (IOException e) 
+		{
+			System.out.println("Unable to create kinect producer");
+		}*/
+		 
+		
+		kinectReader = new KinectBodyDataProvider(8008);
+>>>>>>> d739ce9f51704bb0391c0a499945ed1f32c15e2d
 		kinectReader.start();
 
 	}
@@ -135,6 +150,7 @@ public class MultiUserAppDemo extends PApplet
 			}
 			
 		}
+<<<<<<< HEAD
 	}
 	
 		
@@ -155,6 +171,21 @@ public class MultiUserAppDemo extends PApplet
 				secondPersonId= null;
 			}
 			
+=======
+		Body person = null;
+		Body person1 = null;
+		
+		if(tracker.getPeople().containsKey(firstPersonId) && 
+				tracker.getPeople().containsKey(secondPersonId)) 
+		{
+			 person = tracker.getPeople().get(firstPersonId);
+			 person1 = tracker.getPeople().get(secondPersonId);
+		} 
+		else 
+		{
+			firstPersonId = null;
+			secondPersonId = null;
+>>>>>>> d739ce9f51704bb0391c0a499945ed1f32c15e2d
 		}
 		
 		
@@ -202,7 +233,7 @@ public class MultiUserAppDemo extends PApplet
 			PVector handRight2 = person2.getJoint(Body.HAND_RIGHT);
 
 
-			fill(255,255,255);
+			fill(255,255,255);//yellow
 			noStroke();
 			drawIfValid(head2);
 			drawIfValid(spine2);
@@ -217,6 +248,56 @@ public class MultiUserAppDemo extends PApplet
 
 			
 			drawShape(handLeft2, handRight2, footLeft2, footRight2);
+
+		}
+		if(person1 != null)
+		{
+			System.out.println("Second Person Exists");
+			PVector head1 = person1.getJoint(Body.HEAD);
+			PVector spine1 = person1.getJoint(Body.SPINE_SHOULDER);
+			PVector spineBase1 = person1.getJoint(Body.SPINE_BASE);
+			PVector shoulderLeft1 = person1.getJoint(Body.SHOULDER_LEFT);
+			PVector shoulderRight1 = person1.getJoint(Body.SHOULDER_RIGHT);
+			PVector footLeft1 = person1.getJoint(Body.FOOT_LEFT);
+			PVector footRight1 = person1.getJoint(Body.FOOT_RIGHT);
+			PVector handLeft1 = person1.getJoint(Body.HAND_LEFT);
+			PVector handRight1 = person1.getJoint(Body.HAND_RIGHT);
+
+
+			fill(255,195,13);//yellow 
+			noStroke();
+			drawIfValid(head1);
+			drawIfValid(spine1);
+			drawIfValid(spineBase1);
+			drawIfValid(shoulderLeft1);
+			drawIfValid(shoulderRight1);
+			drawIfValid(footLeft1);
+			drawIfValid(footRight1);
+			drawIfValid(handLeft1);
+			drawIfValid(handRight1);
+
+//			if( 
+//					(footRight != null) &&
+//					(footLeft != null) &&
+//				//	(shoulderLeft != null) &&
+//				//	(shoulderRight != null) 
+//					(handLeft != null) &&
+//					(handRight != null) 
+//					) 
+//			{
+//				stroke(255,0,0, 100);
+//				noFill();
+//				strokeWeight(.05f); // because of scale weight needs to be much thinner
+//				curve(
+//						footLeft.x, footLeft.y, 
+//						handLeft.x, handLeft.y, 
+//						handRight.x, handRight.y,
+//						footRight.x, footRight.y
+//						);
+//
+//			}
+			
+			drawShape(handLeft1, handRight1, footLeft1, footRight1);
 
 		}
 	}
