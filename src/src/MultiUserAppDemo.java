@@ -81,7 +81,6 @@ public class MultiUserAppDemo extends PApplet
 		 * use this code to run your PApplet from data recorded by UPDRecorder 
 		 */
 		
-<<<<<<< HEAD
 //		
 //		try 
 //		{
@@ -95,7 +94,6 @@ public class MultiUserAppDemo extends PApplet
 //		
 		kinectReader = new KinectBodyDataProvider(8008);
 
-=======
 		
 		/*try 
 		{
@@ -108,7 +106,6 @@ public class MultiUserAppDemo extends PApplet
 		 
 		
 		kinectReader = new KinectBodyDataProvider(8008);
->>>>>>> d739ce9f51704bb0391c0a499945ed1f32c15e2d
 		kinectReader.start();
 
 	}
@@ -150,7 +147,6 @@ public class MultiUserAppDemo extends PApplet
 			}
 			
 		}
-<<<<<<< HEAD
 	}
 	
 		
@@ -170,22 +166,21 @@ public class MultiUserAppDemo extends PApplet
 			if(person2 == null) {
 				secondPersonId= null;
 			}
+		}
 			
-=======
-		Body person = null;
-		Body person1 = null;
+//		Body person1 = null;
+//		Body person2 = null;
 		
 		if(tracker.getPeople().containsKey(firstPersonId) && 
 				tracker.getPeople().containsKey(secondPersonId)) 
 		{
-			 person = tracker.getPeople().get(firstPersonId);
-			 person1 = tracker.getPeople().get(secondPersonId);
+			 person1 = tracker.getPeople().get(firstPersonId);
+			 person2 = tracker.getPeople().get(secondPersonId);
 		} 
 		else 
 		{
 			firstPersonId = null;
 			secondPersonId = null;
->>>>>>> d739ce9f51704bb0391c0a499945ed1f32c15e2d
 		}
 		
 		
@@ -250,6 +245,7 @@ public class MultiUserAppDemo extends PApplet
 			drawShape(handLeft2, handRight2, footLeft2, footRight2);
 
 		}
+		
 		if(person1 != null)
 		{
 			System.out.println("Second Person Exists");
