@@ -1,4 +1,3 @@
-package exercise1;
 //package edu.mtholyoke.cs.comsc243.kinectUDP;
 
 import java.util.concurrent.BlockingQueue;

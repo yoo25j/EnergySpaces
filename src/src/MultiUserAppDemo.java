@@ -1,4 +1,3 @@
-package exercise1;
 //package edu.mtholyoke.cs.comsc243.kinectUDP;
 
 import java.io.IOException;
@@ -82,7 +81,7 @@ public class MultiUserAppDemo extends PApplet
 		 * use this code to run your PApplet from data recorded by UPDRecorder 
 		 */
 		
-		
+//		
 //		try 
 //		{
 //			kinectReader = new KinectBodyDataProvider("test.kinect", 10);
@@ -91,8 +90,8 @@ public class MultiUserAppDemo extends PApplet
 //		{
 //			System.out.println("Unable to create kinect producer");
 //		}
-		 
-		
+//		 
+//		
 		kinectReader = new KinectBodyDataProvider(8008);
 
 		kinectReader.start();
@@ -102,8 +101,7 @@ public class MultiUserAppDemo extends PApplet
 	/**
 	 * 
 	 */
-	public void draw()
-	{
+	public void draw(){
 		setScale(.5f);
 		
 		noStroke();
@@ -118,80 +116,107 @@ public class MultiUserAppDemo extends PApplet
 		KinectBodyData bodyData = kinectReader.getMostRecentData();
 		tracker.update(bodyData);
 		
-		if(firstPersonId == null && secondPersonId == null) 
-		{
-			if(! tracker.getPeople().isEmpty()) 
-			{
+		if(! tracker.getPeople().isEmpty()) {
+			if(firstPersonId == null) {
 				for(Long id : tracker.getIds()) 
 				{
+					if(id != secondPersonId) {
 					firstPersonId = id;
-					secondPersonId = id;
-					break; 
-					// we only care about getting one id					
-					// we will arbitrarily use the first in the set
-				}				
+					}
+				}
+				
 			}
+		if(secondPersonId == null) {
+			for(Long id : tracker.getIds()) 
+			{
+				if(id != firstPersonId) {
+					secondPersonId = id;
+				}
+			}
+			
 		}
-		Body person = null;
-		if(tracker.getPeople().containsKey(firstPersonId) && 
-				tracker.getPeople().containsKey(secondPersonId)) 
-		{
-			 person = tracker.getPeople().get(firstPersonId);
-			 person = tracker.getPeople().get(secondPersonId);
-		} 
-		else 
-		{
-			firstPersonId = null;
-			secondPersonId = null;
+	}
+	
+		
+		
+		
+		Body person1 = null;
+		if(firstPersonId != null) {
+			person1 = tracker.getPeople().get(firstPersonId);
+			if(person1 == null) {
+				firstPersonId= null;
+			}
+			
+		}
+		Body person2 = null;
+		if(secondPersonId != null) {
+			person2 = tracker.getPeople().get(secondPersonId);
+			if(person2 == null) {
+				secondPersonId= null;
+			}
+			
 		}
 		
-		if(person != null)
+		
+	
+		
+		if(person1 != null && person2 != null )
 		{
-			PVector head = person.getJoint(Body.HEAD);
-			PVector spine = person.getJoint(Body.SPINE_SHOULDER);
-			PVector spineBase = person.getJoint(Body.SPINE_BASE);
-			PVector shoulderLeft = person.getJoint(Body.SHOULDER_LEFT);
-			PVector shoulderRight = person.getJoint(Body.SHOULDER_RIGHT);
-			PVector footLeft = person.getJoint(Body.FOOT_LEFT);
-			PVector footRight = person.getJoint(Body.FOOT_RIGHT);
-			PVector handLeft = person.getJoint(Body.HAND_LEFT);
-			PVector handRight = person.getJoint(Body.HAND_RIGHT);
+			PVector head1 = person1.getJoint(Body.HEAD);
+			PVector spine1 = person1.getJoint(Body.SPINE_SHOULDER);
+			PVector spineBase1 = person1.getJoint(Body.SPINE_BASE);
+			PVector shoulderLeft1 = person1.getJoint(Body.SHOULDER_LEFT);
+			PVector shoulderRight1 = person1.getJoint(Body.SHOULDER_RIGHT);
+			PVector footLeft1 = person1.getJoint(Body.FOOT_LEFT);
+			PVector footRight1 = person1.getJoint(Body.FOOT_RIGHT);
+			PVector handLeft1 = person1.getJoint(Body.HAND_LEFT);
+			PVector handRight1 = person1.getJoint(Body.HAND_RIGHT);
 
 
 			fill(255,255,255);
 			noStroke();
-			drawIfValid(head);
-			drawIfValid(spine);
-			drawIfValid(spineBase);
-			drawIfValid(shoulderLeft);
-			drawIfValid(shoulderRight);
-			drawIfValid(footLeft);
-			drawIfValid(footRight);
-			drawIfValid(handLeft);
-			drawIfValid(handRight);
+			drawIfValid(head1);
+			drawIfValid(spine1);
+			drawIfValid(spineBase1);
+			drawIfValid(shoulderLeft1);
+			drawIfValid(shoulderRight1);
+			drawIfValid(footLeft1);
+			drawIfValid(footRight1);
+			drawIfValid(handLeft1);
+			drawIfValid(handRight1);
 
-//			if( 
-//					(footRight != null) &&
-//					(footLeft != null) &&
-//				//	(shoulderLeft != null) &&
-//				//	(shoulderRight != null) 
-//					(handLeft != null) &&
-//					(handRight != null) 
-//					) 
-//			{
-//				stroke(255,0,0, 100);
-//				noFill();
-//				strokeWeight(.05f); // because of scale weight needs to be much thinner
-//				curve(
-//						footLeft.x, footLeft.y, 
-//						handLeft.x, handLeft.y, 
-//						handRight.x, handRight.y,
-//						footRight.x, footRight.y
-//						);
-//
-//			}
+
 			
-			drawShape(handLeft, handRight, footLeft, footRight);
+			drawShape(handLeft1, handRight1, footLeft1, footRight1);
+			
+			// person 2 joints
+			
+			PVector head2 = person2.getJoint(Body.HEAD);
+			PVector spine2 = person2.getJoint(Body.SPINE_SHOULDER);
+			PVector spineBase2 = person2.getJoint(Body.SPINE_BASE);
+			PVector shoulderLeft2 = person2.getJoint(Body.SHOULDER_LEFT);
+			PVector shoulderRight2 = person2.getJoint(Body.SHOULDER_RIGHT);
+			PVector footLeft2 = person2.getJoint(Body.FOOT_LEFT);
+			PVector footRight2 = person2.getJoint(Body.FOOT_RIGHT);
+			PVector handLeft2 = person2.getJoint(Body.HAND_LEFT);
+			PVector handRight2 = person2.getJoint(Body.HAND_RIGHT);
+
+
+			fill(255,255,255);
+			noStroke();
+			drawIfValid(head2);
+			drawIfValid(spine2);
+			drawIfValid(spineBase2);
+			drawIfValid(shoulderLeft2);
+			drawIfValid(shoulderRight2);
+			drawIfValid(footLeft2);
+			drawIfValid(footRight2);
+			drawIfValid(handLeft2);
+			drawIfValid(handRight2);
+
+
+			
+			drawShape(handLeft2, handRight2, footLeft2, footRight2);
 
 		}
 	}
@@ -227,7 +252,7 @@ public class MultiUserAppDemo extends PApplet
 //			ellipse(vec.x, vec.y, .1f,.1f);
 			
 			beginShape();
-			fill(56, 34, 255, 50);
+			fill(153,0,76, 50);
 			noStroke();
 //			background(0);
 			vertex(p1.x,p1.y);
