@@ -92,7 +92,7 @@ public class MultiUserAppDemo extends PApplet
 //		}
 //		 
 //		
-		kinectReader = new KinectBodyDataProvider(8008);
+		//kinectReader = new KinectBodyDataProvider(8008);
 
 		
 		/*try 
