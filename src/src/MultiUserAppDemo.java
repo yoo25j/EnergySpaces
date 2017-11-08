@@ -11,26 +11,22 @@ import processing.core.PVector;
  *
  */
 public class MultiUserAppDemo extends PApplet 
-{
-
-	
+{	
 	Long firstPersonId = null;
 	Long secondPersonId = null;
 	Long thirdPersonId = null;
-
 	
 	KinectBodyDataProvider kinectReader;
 	PersonTracker tracker = new PersonTracker();
 	
 	public static float PROJECTOR_RATIO = 1080f/1920.0f;
-
 	
 	/**
-	 * 
 	 * @param useP2D
 	 * @param isFullscreen
 	 * @param windowsScale
 	 */
+	
 	public void createWindow(boolean useP2D, boolean isFullscreen, float windowsScale) 
 	{
 		if (useP2D) 
@@ -78,25 +74,9 @@ public class MultiUserAppDemo extends PApplet
 	 */
 	public void setup()
 	{
-
 		/*
 		 * use this code to run your PApplet from data recorded by UPDRecorder 
-		 */
-		
-//		
-//		try 
-//		{
-//			kinectReader = new KinectBodyDataProvider("test.kinect", 10);
-//		} 
-//		catch (IOException e) 
-//		{
-//			System.out.println("Unable to create kinect producer");
-//		}
-//		 
-//		
-		//kinectReader = new KinectBodyDataProvider(8008);
-
-		
+		 */	
 		try 
 		{
 			kinectReader = new KinectBodyDataProvider("test.kinect", 10);
@@ -106,10 +86,8 @@ public class MultiUserAppDemo extends PApplet
 			System.out.println("Unable to create kinect producer");
 		}
 		 
-		
 		//kinectReader = new KinectBodyDataProvider(8008);
 		kinectReader.start();
-
 	}
 	
 	/**
@@ -117,12 +95,9 @@ public class MultiUserAppDemo extends PApplet
 	 */
 	public void draw(){
 		setScale(.5f);
-		
 		noStroke();
-
 //		background(200,200,200);
 //		background(0);
-
 //		fill(255,0,0);
 		fill(0, 0, 0, 1);
 		rect(-2,-2,4,4);
@@ -156,7 +131,6 @@ public class MultiUserAppDemo extends PApplet
 				}			
 			}
 	}
-	
 		
 		Body person1 = null;
 		if(firstPersonId != null) {
@@ -164,7 +138,6 @@ public class MultiUserAppDemo extends PApplet
 			if(person1 == null) {
 				firstPersonId= null;
 			}
-			
 		}
 		Body person2 = null;
 		if(secondPersonId != null) {
@@ -316,12 +289,9 @@ public class MultiUserAppDemo extends PApplet
 //						);
 //
 //			}
-			
-			//drawShape(handLeft1, handRight1, footLeft1, footRight1);
-
 		//}
 	}
-
+	
 	/**
 	 * Draws an ellipse in the x,y position of the vector (it ignores z).
 	 * Will do nothing is vec is null.  This is handy because get joint 
@@ -334,12 +304,10 @@ public class MultiUserAppDemo extends PApplet
 		{
 			ellipse(vec.x, vec.y, .1f,.1f);
 		}
-
 	}
 
 
 	/**
-	 * 
 	 * @param p1
 	 * @param p2
 	 * @param p3
@@ -362,10 +330,7 @@ public class MultiUserAppDemo extends PApplet
 			vertex(p4.x,p4.y);
 			endShape(CLOSE);
 		}
-		
-		
 	}
-	
 	
 	/**
 	 * 
