@@ -81,7 +81,7 @@ public class MultiUserAppDemo extends PApplet
 		 * use this code to run your PApplet from data recorded by UPDRecorder 
 		 */
 		
-<<<<<<< HEAD
+
 //		
 //		try 
 //		{
@@ -92,10 +92,7 @@ public class MultiUserAppDemo extends PApplet
 //			System.out.println("Unable to create kinect producer");
 //		}
 //		 
-//		
-		kinectReader = new KinectBodyDataProvider(8008);
 
-=======
 		
 		/*try 
 		{
@@ -108,7 +105,7 @@ public class MultiUserAppDemo extends PApplet
 		 
 		
 		kinectReader = new KinectBodyDataProvider(8008);
->>>>>>> d739ce9f51704bb0391c0a499945ed1f32c15e2d
+
 		kinectReader.start();
 
 	}
@@ -116,7 +113,8 @@ public class MultiUserAppDemo extends PApplet
 	/**
 	 * 
 	 */
-	public void draw(){
+	public void draw()
+	{
 		setScale(.5f);
 		
 		noStroke();
@@ -131,61 +129,74 @@ public class MultiUserAppDemo extends PApplet
 		KinectBodyData bodyData = kinectReader.getMostRecentData();
 		tracker.update(bodyData);
 		
-		if(! tracker.getPeople().isEmpty()) {
-			if(firstPersonId == null) {
+		if(! tracker.getPeople().isEmpty()) 
+		{
+			if(firstPersonId == null) 
+			{
 				for(Long id : tracker.getIds()) 
 				{
-					if(id != secondPersonId) {
-					firstPersonId = id;
+					if(id != secondPersonId) 
+					{
+						firstPersonId = id;
 					}
 				}
 				
 			}
-		if(secondPersonId == null) {
-			for(Long id : tracker.getIds()) 
+		if(! tracker.getPeople().isEmpty())
+		{
+			if(secondPersonId == null) 
 			{
-				if(id != firstPersonId) {
-					secondPersonId = id;
+				for(Long id : tracker.getIds()) 
+				{
+					if(id != firstPersonId) 
+					{
+						secondPersonId = id;
+					}
 				}
-			}
 			
 		}
-<<<<<<< HEAD
+
 	}
 	
 		
 		
 		
 		Body person1 = null;
-		if(firstPersonId != null) {
+		if(firstPersonId != null) 
+		{
 			person1 = tracker.getPeople().get(firstPersonId);
-			if(person1 == null) {
+			if(person1 == null) 
+			{
 				firstPersonId= null;
 			}
 			
 		}
 		Body person2 = null;
-		if(secondPersonId != null) {
+		if(secondPersonId != null) 
+		{
 			person2 = tracker.getPeople().get(secondPersonId);
-			if(person2 == null) {
+			if(person2 == null) 
+			{
 				secondPersonId= null;
 			}
 			
-=======
-		Body person = null;
-		Body person1 = null;
+		}
+		
+			
+
+//		Body person = null;
+//		Body person1 = null;
 		
 		if(tracker.getPeople().containsKey(firstPersonId) && 
 				tracker.getPeople().containsKey(secondPersonId)) 
 		{
-			 person = tracker.getPeople().get(firstPersonId);
-			 person1 = tracker.getPeople().get(secondPersonId);
+			 person1 = tracker.getPeople().get(firstPersonId);
+			 person2 = tracker.getPeople().get(secondPersonId);
 		} 
 		else 
 		{
 			firstPersonId = null;
 			secondPersonId = null;
->>>>>>> d739ce9f51704bb0391c0a499945ed1f32c15e2d
 		}
 		
 		
@@ -301,6 +312,9 @@ public class MultiUserAppDemo extends PApplet
 
 		}
 	}
+	
+		
+	}
 
 	/**
 	 * Draws an ellipse in the x,y position of the vector (it ignores z).
@@ -331,7 +345,6 @@ public class MultiUserAppDemo extends PApplet
 		if((p1!= null) && (p2!=null) && (p3 != null) && (p4 !=null)) 
 		{
 //			ellipse(vec.x, vec.y, .1f,.1f);
-			
 			beginShape();
 			fill(153,0,76, 50);
 			noStroke();
