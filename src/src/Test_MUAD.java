@@ -9,7 +9,7 @@ import processing.core.PVector;
  * @author eitan
  *
  */
-public class MultiUserAppDemo extends PApplet 
+public class Test_MUAD extends PApplet 
 {	
 	Long firstPersonId = null;
 	Long secondPersonId = null;
@@ -194,7 +194,7 @@ public class MultiUserAppDemo extends PApplet
 			PVector footRight1 = person1.getJoint(Body.FOOT_RIGHT);
 			PVector handLeft1 = person1.getJoint(Body.HAND_LEFT);
 			PVector handRight1 = person1.getJoint(Body.HAND_RIGHT);
-			fill(255,255,255); //WHITE
+			fill(68,55,255); //BLUE
 			noStroke();
 			drawIfValid(head1);
 			drawIfValid(spine1);
@@ -217,7 +217,7 @@ public class MultiUserAppDemo extends PApplet
 			PVector footRight2 = person2.getJoint(Body.FOOT_RIGHT);
 			PVector handLeft2 = person2.getJoint(Body.HAND_LEFT);
 			PVector handRight2 = person2.getJoint(Body.HAND_RIGHT);
-			fill(255,255,255);//YELLOW
+			fill(255,99,95);//PINK
 			noStroke();
 			drawIfValid(head2);
 			drawIfValid(spine2);
@@ -269,11 +269,11 @@ public class MultiUserAppDemo extends PApplet
 			ellipse(vec.x, vec.y, .1f,.1f);
 		}
 		
-//		  int passedMillis = millis() - time; // calculates passed milliseconds
-//		  if(passedMillis >= 215){
-//		      time = millis();
-//		      fill(255,0,0);  // if more than 215 milliseconds passed set fill color to red
-//		  }
+		int passedMillis = millis() - time; // calculates passed milliseconds
+		if(passedMillis >= 215){
+			time = millis();
+		    fill(255,0,0);  // if more than 215 milliseconds passed set fill color to red
+		}
 	}
 
 
@@ -307,7 +307,7 @@ public class MultiUserAppDemo extends PApplet
 	 */
 	public static void main(String[] args) 
 	{
-		PApplet.main(MultiUserAppDemo.class.getName());
+		PApplet.main(Test_MUAD.class.getName());
 	}
 
 }
