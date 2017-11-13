@@ -131,7 +131,7 @@ public class Test_MUAD extends PApplet
 					}
 				}			
 			}
-	}
+		}
 		
 		Body person1 = null;
 		if(firstPersonId != null) {
@@ -195,6 +195,7 @@ public class Test_MUAD extends PApplet
 			PVector handLeft1 = person1.getJoint(Body.HAND_LEFT);
 			PVector handRight1 = person1.getJoint(Body.HAND_RIGHT);
 			fill(68,55,255); //BLUE
+			//tint(255, 126);
 			noStroke();
 			drawIfValid(head1);
 			drawIfValid(spine1);
@@ -217,7 +218,8 @@ public class Test_MUAD extends PApplet
 			PVector footRight2 = person2.getJoint(Body.FOOT_RIGHT);
 			PVector handLeft2 = person2.getJoint(Body.HAND_LEFT);
 			PVector handRight2 = person2.getJoint(Body.HAND_RIGHT);
-			fill(255,99,95);//PINK
+			fill(255,99,95);//PINK 
+			tint(255, 128);
 			noStroke();
 			drawIfValid(head2);
 			drawIfValid(spine2);
@@ -268,7 +270,6 @@ public class Test_MUAD extends PApplet
 		{
 			ellipse(vec.x, vec.y, .1f,.1f);
 		}
-		
 		int passedMillis = millis() - time; // calculates passed milliseconds
 		if(passedMillis >= 215){
 			time = millis();

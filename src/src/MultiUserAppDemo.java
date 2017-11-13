@@ -205,7 +205,7 @@ public class MultiUserAppDemo extends PApplet
 			drawIfValid(footRight1);
 			drawIfValid(handLeft1);
 			drawIfValid(handRight1);
-			//drawShape(handLeft1, handRight1, footLeft1, footRight1);
+			drawShape(handLeft1, handRight1, footLeft1, footRight1);
 			
 			//PERSON2 
 			PVector head2 = person2.getJoint(Body.HEAD);
@@ -228,7 +228,7 @@ public class MultiUserAppDemo extends PApplet
 			drawIfValid(footRight2);
 			drawIfValid(handLeft2);
 			drawIfValid(handRight2);
-			//drawShape(handLeft2, handRight2, footLeft2, footRight2);
+			drawShape(handLeft2, handRight2, footLeft2, footRight2);
 
 			
 			//PERSON3
@@ -252,7 +252,7 @@ public class MultiUserAppDemo extends PApplet
 			drawIfValid(footRight3);
 			drawIfValid(handLeft3);
 			drawIfValid(handRight3);
-			//drawShape(handLeft3, handRight3, footLeft3, footRight3);
+			drawShape(handLeft3, handRight3, footLeft3, footRight3);
 		}
 	}
 	
@@ -283,7 +283,7 @@ public class MultiUserAppDemo extends PApplet
 	 * @param p3
 	 * @param p4
 	 */
-/*	public void drawShape(PVector p1, PVector p2, 
+	public void drawShape(PVector p1, PVector p2, 
 			PVector p3, PVector p4)
 	{
 		if((p1!= null) && (p2!=null) && (p3 != null) && (p4 !=null)) 
@@ -299,7 +299,7 @@ public class MultiUserAppDemo extends PApplet
 			vertex(p4.x,p4.y);
 			endShape(CLOSE);
 		}
-	}*/
+	}
 	
 	/**
 	 * 

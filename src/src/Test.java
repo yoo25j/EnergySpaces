@@ -2,7 +2,7 @@
  * Test for Graphic Capabilities for Project 2
  * Things we want to try:
  * - timed draw (ellipse) delivery
- * - 
+ * - tint() 
  * 
  */
 
@@ -53,7 +53,7 @@ public class Test extends PApplet {
 	 
 	  fill(255); // fill white
 	  ellipse(150,150,50,50); // draw second circle
-	 
+	  //tint(255, 126);
 	  fill(255,0,0);  // fill red
 	  arc(50, 55, 50, 50, (float) (TWO_PI / 215.0 * passedMillis),PIE); // draw red pie over second circle
 	}
