@@ -203,7 +203,7 @@ public class Test_MUAD extends PApplet
 			PVector footRight1 = person1.getJoint(Body.FOOT_RIGHT);
 			PVector handLeft1 = person1.getJoint(Body.HAND_LEFT);
 			PVector handRight1 = person1.getJoint(Body.HAND_RIGHT);
-			fill(a1,a2,a3); //person 1 color
+			fill (255,211,215);
 			//tint(255, 126);
 			noStroke();
 			drawIfValid(head1);
@@ -227,7 +227,8 @@ public class Test_MUAD extends PApplet
 			PVector footRight2 = person2.getJoint(Body.FOOT_RIGHT);
 			PVector handLeft2 = person2.getJoint(Body.HAND_LEFT);
 			PVector handRight2 = person2.getJoint(Body.HAND_RIGHT);
-			fill(b1,b2,b3); 
+			fill (255,134,145);
+			//fill(b1,b2,b3); 
 			tint(255, 128);
 			noStroke();
 			drawIfValid(head2);
@@ -252,7 +253,8 @@ public class Test_MUAD extends PApplet
 			PVector handLeft3 = person3.getJoint(Body.HAND_LEFT);
 			PVector handRight3 = person3.getJoint(Body.HAND_RIGHT);
 			//fill(c1,c2,c3, c4);
-			fill(c1,c2,c3); 
+			fill(204, 107, 116);
+			//fill(c1,c2,c3); 
 			noStroke();
 			drawIfValid(head3);
 			drawIfValid(spine3);
@@ -272,33 +274,25 @@ public class Test_MUAD extends PApplet
 			// *****************EFFECTS*****************
 			//Get flash of light for hand touching --explicit to right hand
 			if (person1.getJoint(Body.HAND_RIGHT) == person2.getJoint(Body.HAND_RIGHT)) {
-//				fill(255,255,255); //CHANGE TO WHITE
-//				rect(-2,-2,100,100);
 				case1 = true;
 				count++;
-				a1 = a1 + 10; a2 = a2 + 10; a3 = a3+ 10;
-				System.out.println("case1" +count);
 			}
 			if (person2.getJoint(Body.HAND_RIGHT) == person3.getJoint(Body.HAND_RIGHT)) {
 //				fill(255,255,255); //CHANGE TO WHITE
 //				rect(-2,-2,100,100);
 				case2 = true;
 				count++;
-				b1 = b1 + 10; b2 = b2 + 10; b3 = b3+ 10;
-				System.out.println("case2" +count);
 			}
 			if (person1.getJoint(Body.HAND_RIGHT) == person3.getJoint(Body.HAND_RIGHT)) {
 //				fill(255,255,255); //CHANGE TO WHITE
 //				rect(-2,-2,100,100);
 				case3= true;
 				count++;
-				System.out.println("case3" +count);
 			}
 			if (case1 == true && case2 == true && case3 == true) {
 				fill(255,255,255); //CHANGE TO WHITE
 				rect(-2,-2,100,100);
 				count = count + 10;
-				System.out.println("case4" + count);
 			}
 			
 			
@@ -309,51 +303,264 @@ public class Test_MUAD extends PApplet
 				//do nothing?
 			}
 			
-			if (count > 1 || count < 10) {
-				
-				
+			if (count > 1 && count < 20) {
+				fill(190,19,11); 
+				noStroke();
+				drawIfValid(head1);
+				drawIfValid(spine1);
+				drawIfValid(spineBase1);
+				drawIfValid(shoulderLeft1);
+				drawIfValid(shoulderRight1);
+				drawIfValid(footLeft1);
+				drawIfValid(footRight1);
+				drawIfValid(handLeft1);
+				drawIfValid(handRight1);
+				drawIfValid(head2);
+				drawIfValid(spine2);
+				drawIfValid(spineBase2);
+				drawIfValid(shoulderLeft2);
+				drawIfValid(shoulderRight2);
+				drawIfValid(footLeft2);
+				drawIfValid(footRight2);
+				drawIfValid(handLeft2);
+				drawIfValid(handRight2);
+				drawIfValid(head3);
+				drawIfValid(spine3);
+				drawIfValid(spineBase3);
+				drawIfValid(shoulderLeft3);
+				drawIfValid(shoulderRight3);
+				drawIfValid(footLeft3);
+				drawIfValid(footRight3);
+				drawIfValid(handLeft3);
+				drawIfValid(handRight3);
+
 			}
 			
-			if (count > 30 || count < 50 ) {
-				
+			if (count > 21 && count < 50 ) {
+				fill(190,78,35); 
+				noStroke();
+				drawIfValid(head1);
+				drawIfValid(spine1);
+				drawIfValid(spineBase1);
+				drawIfValid(shoulderLeft1);
+				drawIfValid(shoulderRight1);
+				drawIfValid(footLeft1);
+				drawIfValid(footRight1);
+				drawIfValid(handLeft1);
+				drawIfValid(handRight1);
+				drawIfValid(head2);
+				drawIfValid(spine2);
+				drawIfValid(spineBase2);
+				drawIfValid(shoulderLeft2);
+				drawIfValid(shoulderRight2);
+				drawIfValid(footLeft2);
+				drawIfValid(footRight2);
+				drawIfValid(handLeft2);
+				drawIfValid(handRight2);
+				drawIfValid(head3);
+				drawIfValid(spine3);
+				drawIfValid(spineBase3);
+				drawIfValid(shoulderLeft3);
+				drawIfValid(shoulderRight3);
+				drawIfValid(footLeft3);
+				drawIfValid(footRight3);
+				drawIfValid(handLeft3);
+				drawIfValid(handRight3);
 			}
 
-			if (count > 51 || count < 70 ) {
-				
+			if (count > 51 && count < 80 ) {
+				fill(190,175,23); 
+				noStroke();
+				drawIfValid(head1);
+				drawIfValid(spine1);
+				drawIfValid(spineBase1);
+				drawIfValid(shoulderLeft1);
+				drawIfValid(shoulderRight1);
+				drawIfValid(footLeft1);
+				drawIfValid(footRight1);
+				drawIfValid(handLeft1);
+				drawIfValid(handRight1);
+				drawIfValid(head2);
+				drawIfValid(spine2);
+				drawIfValid(spineBase2);
+				drawIfValid(shoulderLeft2);
+				drawIfValid(shoulderRight2);
+				drawIfValid(footLeft2);
+				drawIfValid(footRight2);
+				drawIfValid(handLeft2);
+				drawIfValid(handRight2);
+				drawIfValid(head3);
+				drawIfValid(spine3);
+				drawIfValid(spineBase3);
+				drawIfValid(shoulderLeft3);
+				drawIfValid(shoulderRight3);
+				drawIfValid(footLeft3);
+				drawIfValid(footRight3);
+				drawIfValid(handLeft3);
+				drawIfValid(handRight3);
 			}
 
-			if (count > 71 || count < 90 ) {
-				
+			if (count > 81 && count < 110 ) {
+				fill(122,190,132); 
+				noStroke();
+				drawIfValid(head1);
+				drawIfValid(spine1);
+				drawIfValid(spineBase1);
+				drawIfValid(shoulderLeft1);
+				drawIfValid(shoulderRight1);
+				drawIfValid(footLeft1);
+				drawIfValid(footRight1);
+				drawIfValid(handLeft1);
+				drawIfValid(handRight1);
+				drawIfValid(head2);
+				drawIfValid(spine2);
+				drawIfValid(spineBase2);
+				drawIfValid(shoulderLeft2);
+				drawIfValid(shoulderRight2);
+				drawIfValid(footLeft2);
+				drawIfValid(footRight2);
+				drawIfValid(handLeft2);
+				drawIfValid(handRight2);
+				drawIfValid(head3);
+				drawIfValid(spine3);
+				drawIfValid(spineBase3);
+				drawIfValid(shoulderLeft3);
+				drawIfValid(shoulderRight3);
+				drawIfValid(footLeft3);
+				drawIfValid(footRight3);
+				drawIfValid(handLeft3);
+				drawIfValid(handRight3);
 			}
 			
-			if (count > 91 || count < 110 ) {
-				
+			if (count > 111 && count < 140 ) {
+				fill(77,190,170); 
+				noStroke();
+				drawIfValid(head1);
+				drawIfValid(spine1);
+				drawIfValid(spineBase1);
+				drawIfValid(shoulderLeft1);
+				drawIfValid(shoulderRight1);
+				drawIfValid(footLeft1);
+				drawIfValid(footRight1);
+				drawIfValid(handLeft1);
+				drawIfValid(handRight1);
+				drawIfValid(head2);
+				drawIfValid(spine2);
+				drawIfValid(spineBase2);
+				drawIfValid(shoulderLeft2);
+				drawIfValid(shoulderRight2);
+				drawIfValid(footLeft2);
+				drawIfValid(footRight2);
+				drawIfValid(handLeft2);
+				drawIfValid(handRight2);
+				drawIfValid(head3);
+				drawIfValid(spine3);
+				drawIfValid(spineBase3);
+				drawIfValid(shoulderLeft3);
+				drawIfValid(shoulderRight3);
+				drawIfValid(footLeft3);
+				drawIfValid(footRight3);
+				drawIfValid(handLeft3);
+				drawIfValid(handRight3);
 			}
 			
-			if (count > 111 || count < 130 ) {
-				
+			if (count > 141 && count < 170 ) {
+				fill(172,109,190); 
+				noStroke();
+				drawIfValid(head1);
+				drawIfValid(spine1);
+				drawIfValid(spineBase1);
+				drawIfValid(shoulderLeft1);
+				drawIfValid(shoulderRight1);
+				drawIfValid(footLeft1);
+				drawIfValid(footRight1);
+				drawIfValid(handLeft1);
+				drawIfValid(handRight1);
+				drawIfValid(head2);
+				drawIfValid(spine2);
+				drawIfValid(spineBase2);
+				drawIfValid(shoulderLeft2);
+				drawIfValid(shoulderRight2);
+				drawIfValid(footLeft2);
+				drawIfValid(footRight2);
+				drawIfValid(handLeft2);
+				drawIfValid(handRight2);
+				drawIfValid(head3);
+				drawIfValid(spine3);
+				drawIfValid(spineBase3);
+				drawIfValid(shoulderLeft3);
+				drawIfValid(shoulderRight3);
+				drawIfValid(footLeft3);
+				drawIfValid(footRight3);
+				drawIfValid(handLeft3);
+				drawIfValid(handRight3);
 			}
 			
 			
-			if (count > 131 || count < 150 ) {
-				
+			if (count > 171 && count < 200 ) {
+				fill(119,94,190); 
+				noStroke();
+				drawIfValid(head1);
+				drawIfValid(spine1);
+				drawIfValid(spineBase1);
+				drawIfValid(shoulderLeft1);
+				drawIfValid(shoulderRight1);
+				drawIfValid(footLeft1);
+				drawIfValid(footRight1);
+				drawIfValid(handLeft1);
+				drawIfValid(handRight1);
+				drawIfValid(head2);
+				drawIfValid(spine2);
+				drawIfValid(spineBase2);
+				drawIfValid(shoulderLeft2);
+				drawIfValid(shoulderRight2);
+				drawIfValid(footLeft2);
+				drawIfValid(footRight2);
+				drawIfValid(handLeft2);
+				drawIfValid(handRight2);
+				drawIfValid(head3);
+				drawIfValid(spine3);
+				drawIfValid(spineBase3);
+				drawIfValid(shoulderLeft3);
+				drawIfValid(shoulderRight3);
+				drawIfValid(footLeft3);
+				drawIfValid(footRight3);
+				drawIfValid(handLeft3);
+				drawIfValid(handRight3);
 			}
 			
-			if (count > 151 || count < 170) {
-				
+			if (count > 201 && count < 225) {
+				fill(79,53,190); 
+				noStroke();
+				drawIfValid(head1);
+				drawIfValid(spine1);
+				drawIfValid(spineBase1);
+				drawIfValid(shoulderLeft1);
+				drawIfValid(shoulderRight1);
+				drawIfValid(footLeft1);
+				drawIfValid(footRight1);
+				drawIfValid(handLeft1);
+				drawIfValid(handRight1);
+				drawIfValid(head2);
+				drawIfValid(spine2);
+				drawIfValid(spineBase2);
+				drawIfValid(shoulderLeft2);
+				drawIfValid(shoulderRight2);
+				drawIfValid(footLeft2);
+				drawIfValid(footRight2);
+				drawIfValid(handLeft2);
+				drawIfValid(handRight2);
+				drawIfValid(head3);
+				drawIfValid(spine3);
+				drawIfValid(spineBase3);
+				drawIfValid(shoulderLeft3);
+				drawIfValid(shoulderRight3);
+				drawIfValid(footLeft3);
+				drawIfValid(footRight3);
+				drawIfValid(handLeft3);
+				drawIfValid(handRight3);
 			}
 			
-			if (count > 171 || count < 190) {
-				
-			}
-			
-			if (count > 191 || count < 210) {
-				
-			}
-			
-			if (count > 211 || count < 225) {
-				
-			}
 			
 			if (count == 225) {
 				count = 0;
