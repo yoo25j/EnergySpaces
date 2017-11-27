@@ -22,6 +22,13 @@ public class Test_MUAD extends PApplet
 	
 	public static float PROJECTOR_RATIO = 1080f/1920.0f;
 	
+	//variables to control effects
+	int count = 0;
+	int p1 = 0;int p2 = 0;int p3 = 0;
+	int a1 = 0;	int a2 = 0; int a3 = 0; int a4 = 0;
+	int b1 = 0; int b2 = 0; int b3 = 0; int b4 =0;
+	int c1 = 0; int c2 = 0; int c3 = 0; int c4 = 0;
+
 	/**
 	 * @param useP2D
 	 * @param isFullscreen
@@ -95,14 +102,16 @@ public class Test_MUAD extends PApplet
 	 * 
 	 */
 	public void draw(){
-		setScale(.5f);
+		//setScale(1f);
+		setScale(0.5f); //original scale
 		noStroke();
-//		background(200,200,200);
-//		background(0);
-//		fill(255,0,0);
-		fill(0, 0, 0, 1);
-		rect(-2,-2,4,4);
+		
+		fill(0, 0, 0, 1); //transparent gray rectangle background
+		//rect(0,0,25,25); //create rectangle
+		rect(-2,-2,10,15);
 
+
+		// *****************CREATE BODY*****************
 		KinectBodyData bodyData = kinectReader.getMostRecentData();
 		tracker.update(bodyData);
 		
@@ -132,7 +141,7 @@ public class Test_MUAD extends PApplet
 				}			
 			}
 		}
-		
+	
 		Body person1 = null;
 		if(firstPersonId != null) {
 			person1 = tracker.getPeople().get(firstPersonId);
@@ -170,19 +179,19 @@ public class Test_MUAD extends PApplet
 			thirdPersonId = null;
 		}
 		
-		
+		//Check if 3 people are present
 		if(person1 != null && person2 != null && person3 != null)
 		{
-			//some testing -- jane
-			if (person1 != null) {
-				System.out.println("1st person present");
-			}
-			if (person2 != null) {
-				System.out.println("2nd person present");
-			}
-			if (person3 != null) {
-				System.out.println("3nd person present");
-			}
+			//testing -- jane
+//			if (person1 != null) {
+//				System.out.println("1st person present");
+//			}
+//			if (person2 != null) {
+//				System.out.println("2nd person present");
+//			}
+//			if (person3 != null) {
+//				System.out.println("3nd person present");
+//			}
 			
 			//PERSON1
 			PVector head1 = person1.getJoint(Body.HEAD);
@@ -194,7 +203,7 @@ public class Test_MUAD extends PApplet
 			PVector footRight1 = person1.getJoint(Body.FOOT_RIGHT);
 			PVector handLeft1 = person1.getJoint(Body.HAND_LEFT);
 			PVector handRight1 = person1.getJoint(Body.HAND_RIGHT);
-			fill(68,55,255); //BLUE
+			fill(a1,a2,a3); //person 1 color
 			//tint(255, 126);
 			noStroke();
 			drawIfValid(head1);
@@ -218,7 +227,7 @@ public class Test_MUAD extends PApplet
 			PVector footRight2 = person2.getJoint(Body.FOOT_RIGHT);
 			PVector handLeft2 = person2.getJoint(Body.HAND_LEFT);
 			PVector handRight2 = person2.getJoint(Body.HAND_RIGHT);
-			fill(255,99,95);//PINK 
+			fill(b1,b2,b3); 
 			tint(255, 128);
 			noStroke();
 			drawIfValid(head2);
@@ -231,7 +240,6 @@ public class Test_MUAD extends PApplet
 			drawIfValid(handLeft2);
 			drawIfValid(handRight2);
 			//drawShape(handLeft2, handRight2, footLeft2, footRight2);
-
 			
 			//PERSON3
 			PVector head3 = person3.getJoint(Body.HEAD);
@@ -243,7 +251,8 @@ public class Test_MUAD extends PApplet
 			PVector footRight3 = person3.getJoint(Body.FOOT_RIGHT);
 			PVector handLeft3 = person3.getJoint(Body.HAND_LEFT);
 			PVector handRight3 = person3.getJoint(Body.HAND_RIGHT);
-			fill(166,255,56);//GREEN
+			//fill(c1,c2,c3, c4);
+			fill(c1,c2,c3); 
 			noStroke();
 			drawIfValid(head3);
 			drawIfValid(spine3);
@@ -255,8 +264,106 @@ public class Test_MUAD extends PApplet
 			drawIfValid(handLeft3);
 			drawIfValid(handRight3);
 			//drawShape(handLeft3, handRight3, footLeft3, footRight3);
+			
+			boolean case1 = false;
+			boolean case2 = false;
+			boolean case3 = false;
+			
+			// *****************EFFECTS*****************
+			//Get flash of light for hand touching --explicit to right hand
+			if (person1.getJoint(Body.HAND_RIGHT) == person2.getJoint(Body.HAND_RIGHT)) {
+//				fill(255,255,255); //CHANGE TO WHITE
+//				rect(-2,-2,100,100);
+				case1 = true;
+				count++;
+				a1 = a1 + 10; a2 = a2 + 10; a3 = a3+ 10;
+				System.out.println("case1" +count);
+			}
+			if (person2.getJoint(Body.HAND_RIGHT) == person3.getJoint(Body.HAND_RIGHT)) {
+//				fill(255,255,255); //CHANGE TO WHITE
+//				rect(-2,-2,100,100);
+				case2 = true;
+				count++;
+				b1 = b1 + 10; b2 = b2 + 10; b3 = b3+ 10;
+				System.out.println("case2" +count);
+			}
+			if (person1.getJoint(Body.HAND_RIGHT) == person3.getJoint(Body.HAND_RIGHT)) {
+//				fill(255,255,255); //CHANGE TO WHITE
+//				rect(-2,-2,100,100);
+				case3= true;
+				count++;
+				System.out.println("case3" +count);
+			}
+			if (case1 == true && case2 == true && case3 == true) {
+				fill(255,255,255); //CHANGE TO WHITE
+				rect(-2,-2,100,100);
+				count = count + 10;
+				System.out.println("case4" + count);
+			}
+			
+			
+			
+			
+			//based on how many times this event happens, determine 
+			if (count == 0) {
+				//do nothing?
+			}
+			
+			if (count > 1 || count < 10) {
+				
+				
+			}
+			
+			if (count > 30 || count < 50 ) {
+				
+			}
+
+			if (count > 51 || count < 70 ) {
+				
+			}
+
+			if (count > 71 || count < 90 ) {
+				
+			}
+			
+			if (count > 91 || count < 110 ) {
+				
+			}
+			
+			if (count > 111 || count < 130 ) {
+				
+			}
+			
+			
+			if (count > 131 || count < 150 ) {
+				
+			}
+			
+			if (count > 151 || count < 170) {
+				
+			}
+			
+			if (count > 171 || count < 190) {
+				
+			}
+			
+			if (count > 191 || count < 210) {
+				
+			}
+			
+			if (count > 211 || count < 225) {
+				
+			}
+			
+			if (count == 225) {
+				count = 0;
+			}
+			//count of how many right hand touches there are
+			
 		}
 	}
+	
+
 	
 	/**
 	 * Draws an ellipse in the x,y position of the vector (it ignores z).
