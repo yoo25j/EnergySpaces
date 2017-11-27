@@ -1,3 +1,4 @@
+
 //package edu.mtholyoke.cs.comsc243.kinectUDP;
 
 import java.io.IOException;
@@ -10,109 +11,82 @@ import processing.core.PVector;
  *
  */
 public class MultiUserAppDemo extends PApplet 
-{	
+{
 	Long firstPersonId = null;
 	Long secondPersonId = null;
 	Long thirdPersonId = null;
-	
+
 	KinectBodyDataProvider kinectReader;
 	PersonTracker tracker = new PersonTracker();
-	
-	int time = second();//timer for draw methods
-	
-	public static float PROJECTOR_RATIO = 1080f/1920.0f;
-	
+
+	int time = second();// timer for draw methods
+
+	public static float PROJECTOR_RATIO = 1080f / 1920.0f;
+
 	/**
 	 * @param useP2D
 	 * @param isFullscreen
 	 * @param windowsScale
 	 */
-	
-	public void createWindow(boolean useP2D, boolean isFullscreen, float windowsScale) 
-	{
-		if (useP2D) 
-		{
-			if(isFullscreen) 
-			{
-				fullScreen(P2D);  			
-			} 
-			else 
-			{
-				size((int)(1920 * windowsScale), (int)(1080 * windowsScale), P2D);
+
+	public void createWindow(boolean useP2D, boolean isFullscreen, float windowsScale) {
+		if (useP2D) {
+			if (isFullscreen) {
+				fullScreen(P2D);
+			} else {
+				size((int) (1920 * windowsScale), (int) (1080 * windowsScale), P2D);
 			}
-		} 
-		else 
-		{
-			if(isFullscreen) 
-			{
-				fullScreen();  			
-			} 
-			else 
-			{
-				size((int)(1920 * windowsScale), (int)(1080 * windowsScale));
+		} else {
+			if (isFullscreen) {
+				fullScreen();
+			} else {
+				size((int) (1920 * windowsScale), (int) (1080 * windowsScale));
 			}
-		}		
+		}
 	}
-	
+
 	// use lower numbers to zoom out (show more of the world)
-	// zoom of 1 means that the window is 2 meters wide and approximately 1 meter tall.
-	public void setScale(float zoom) 
-	{
-		scale(zoom* width/2.0f, zoom * -width/2.0f);
-		translate(1f/zoom , -PROJECTOR_RATIO/zoom );		
+	// zoom of 1 means that the window is 2 meters wide and approximately 1 meter
+	// tall.
+	/**
+	 * 
+	 * @param zoom
+	 */
+	public void setScale(float zoom) {
+		scale(zoom * width / 2.0f, zoom * -width / 2.0f);
+		translate(1f / zoom, -PROJECTOR_RATIO / zoom);
 	}
 
 	/**
 	 * 
 	 */
-	public void settings() 
-	{
+	public void settings() {
 		createWindow(false, false, .25f);
 	}
 
 	/**
 	 * 
 	 */
-	public void setup()
-	{
+	public void setup() {
 		/*
-		 * use this code to run your PApplet from data recorded by UPDRecorder 
-<<<<<<< HEAD
+		 * use this code to run your PApplet from data recorded by UPDRecorder
 		 */
-		
 
-//		
-//		try 
-//		{
-//			kinectReader = new KinectBodyDataProvider("test.kinect", 10);
-//		} 
-//		catch (IOException e) 
-//		{
-//			System.out.println("Unable to create kinect producer");
-//		}
-//		 
+		// try
+		//
+		// {
+		// kinectReader = new KinectBodyDataProvider("test.kinect", 10);
+		// }
+		// catch (IOException e)
+		// {
+		// System.out.println("Unable to create kinect producer");
+		// }
 
-		
-		/*try 
-
-		 */	
-		try 
-
-		{
-			kinectReader = new KinectBodyDataProvider("test.kinect", 10);
-		} 
-		catch (IOException e) 
-		{
-			System.out.println("Unable to create kinect producer");
-		}
-		 
-
-		
-		kinectReader = new KinectBodyDataProvider(8008);                                
+		kinectReader = new KinectBodyDataProvider(8008);
 
 		kinectReader.start();
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -137,13 +111,6 @@ public class MultiUserAppDemo extends PApplet
 				{
 					if(id != secondPersonId) 
 					{
-
-		if(! tracker.getPeople().isEmpty()) {
-			if(firstPersonId == null) {
-				for(Long id : tracker.getIds()) //first ID
-				{
-					if(id != secondPersonId) {
-
 						firstPersonId = id;
 					}
 				}
@@ -160,22 +127,28 @@ public class MultiUserAppDemo extends PApplet
 						secondPersonId = id;
 					}
 				}
+			}
 			
 		}
 
 
-			if(secondPersonId == null) { 
+			if(secondPersonId == null) 
+			{ 
 				for(Long id : tracker.getIds())  //second ID
 				{
-					if(id != firstPersonId) {
+					if(id != firstPersonId) 
+					{
 						secondPersonId = id;
 					}
 				}
 			}
-			if (thirdPersonId == null) {
+			
+			if (thirdPersonId == null) 
+			{
 				for(Long id : tracker.getIds())  //second ID
 				{
-					if(id != firstPersonId && id != secondPersonId) {
+					if(id != firstPersonId && id != secondPersonId) 
+					{
 						thirdPersonId = id;
 					}
 				}			
@@ -192,6 +165,7 @@ public class MultiUserAppDemo extends PApplet
 				firstPersonId= null;
 			}
 		}
+		
 		Body person2 = null;
 		if(secondPersonId != null) 
 		{
@@ -202,18 +176,18 @@ public class MultiUserAppDemo extends PApplet
 			}
 		}
 		Body person3 = null;
-		if(thirdPersonId != null) {
+		if(thirdPersonId != null) 
+		{
 			person3 = tracker.getPeople().get(thirdPersonId);
-			if(person3 == null) {
+			if(person3 == null) 
+			{
 				thirdPersonId= null;
 			}
 		}
 			
 
-		}
 		
-			
-
+		
 //		Body person = null;
 //		Body person1 = null;
 		
@@ -222,6 +196,8 @@ public class MultiUserAppDemo extends PApplet
 		{
 			 person1 = tracker.getPeople().get(firstPersonId);
 			 person2 = tracker.getPeople().get(secondPersonId);
+			 
+		}
 
 		if(tracker.getPeople().containsKey(firstPersonId) || 
 				tracker.getPeople().containsKey(secondPersonId) || 
@@ -238,13 +214,16 @@ public class MultiUserAppDemo extends PApplet
 		if(person1 != null && person2 != null && person3 != null)
 		{
 			//some testing -- jane
-			if (person1 != null) {
+			if (person1 != null) 
+			{
 				System.out.println("1st person present");
 			}
-			if (person2 != null) {
+			if (person2 != null) 
+			{
 				System.out.println("2nd person present");
 			}
-			if (person3 != null) {
+			if (person3 != null) 
+			{
 				System.out.println("3nd person present");
 			}
 			
@@ -320,32 +299,29 @@ public class MultiUserAppDemo extends PApplet
 		}
 	}
 	
-
 		
-	}
+	
 
-=======
->>>>>>> e860a1d62e1d6b3cf73968d87d5734c441f26bf7
 	/**
-	 * Draws an ellipse in the x,y position of the vector (it ignores z).
-	 * Will do nothing is vec is null.  This is handy because get joint 
-	 * will return null if the joint isn't tracked. 
+	 * Draws an ellipse in the x,y position of the vector (it ignores z). Will do
+	 * nothing is vec is null. This is handy because get joint will return null if
+	 * the joint isn't tracked.
+	 * 
 	 * @param vec
 	 */
 	public void drawIfValid(PVector vec) 
 	{
-		if(vec != null) 
+		if (vec != null) 
 		{
-			ellipse(vec.x, vec.y, .1f,.1f);
+			ellipse(vec.x, vec.y, .1f, .1f);
 		}
-		
-//		  int passedMillis = millis() - time; // calculates passed milliseconds
-//		  if(passedMillis >= 215){
-//		      time = millis();
-//		      fill(255,0,0);  // if more than 215 milliseconds passed set fill color to red
-//		  }
-	}
 
+		// int passedMillis = millis() - time; // calculates passed milliseconds
+		// if(passedMillis >= 215){
+		// time = millis();
+		// fill(255,0,0); // if more than 215 milliseconds passed set fill color to red
+		// }
+	}
 
 	/**
 	 * @param p1
@@ -353,24 +329,14 @@ public class MultiUserAppDemo extends PApplet
 	 * @param p3
 	 * @param p4
 	 */
-/*	public void drawShape(PVector p1, PVector p2, 
-			PVector p3, PVector p4)
-	{
-		if((p1!= null) && (p2!=null) && (p3 != null) && (p4 !=null)) 
-		{
-//			ellipse(vec.x, vec.y, .1f,.1f);
-			beginShape();
-			fill(153,0,76, 50);
-			noStroke();
-//			background(0);
-			vertex(p1.x,p1.y);
-			vertex(p2.x,p2.y);
-			vertex(p3.x, p3.y);
-			vertex(p4.x,p4.y);
-			endShape(CLOSE);
-		}
-	}*/
-	
+	/*
+	 * public void drawShape(PVector p1, PVector p2, PVector p3, PVector p4) {
+	 * if((p1!= null) && (p2!=null) && (p3 != null) && (p4 !=null)) { //
+	 * ellipse(vec.x, vec.y, .1f,.1f); beginShape(); fill(153,0,76, 50); noStroke();
+	 * // background(0); vertex(p1.x,p1.y); vertex(p2.x,p2.y); vertex(p3.x, p3.y);
+	 * vertex(p4.x,p4.y); endShape(CLOSE); } }
+	 */
+
 	/**
 	 * 
 	 * @param args
