@@ -7,6 +7,9 @@ import processing.core.PVector;
 
 /**
  * @author eitan
+ * @collaborators: Jane, Alexis, Nikkole
+ * 
+ * "Energy Spaces" -- using color to depict relationships between limbs of different  bodies
  *
  */
 public class MultiUserAppDemo extends PApplet 
@@ -28,6 +31,8 @@ public class MultiUserAppDemo extends PApplet
 	int a1 = 0;	int a2 = 0; int a3 = 0; int a4 = 0;
 	int b1 = 0; int b2 = 0; int b3 = 0; int b4 =0;
 	int c1 = 0; int c2 = 0; int c3 = 0; int c4 = 0;
+	Stripe [] stripes = new Stripe[50]; 
+
 
 	/**
 	 * @param useP2D
@@ -96,8 +101,8 @@ public class MultiUserAppDemo extends PApplet
 		 
 		//kinectReader = new KinectBodyDataProvider(8008);
 		kinectReader.start();
+
 	}
-	
 	/**
 	 * 
 	 */
@@ -109,7 +114,6 @@ public class MultiUserAppDemo extends PApplet
 		fill(0, 0, 0, 1); //transparent gray rectangle background
 		//rect(0,0,25,25); //create rectangle
 		rect(-2,-2,10,15);
-
 
 		// *****************CREATE BODY*****************
 		KinectBodyData bodyData = kinectReader.getMostRecentData();
