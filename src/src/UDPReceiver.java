@@ -13,7 +13,8 @@ import java.util.concurrent.TimeUnit;
  * Created by Zhiling on 5/20/17.
  * Modifyed by Eitan
  */
-public class UDPReceiver implements Runnable, MsgProvider {
+public class UDPReceiver implements Runnable, MsgProvider 
+{
 
 	ArrayBlockingQueue<Msg> receivedMsgs = new ArrayBlockingQueue<Msg>(2000);
 	// if you are more than 2000 frames behind you have other problems
@@ -29,43 +30,37 @@ public class UDPReceiver implements Runnable, MsgProvider {
 	//    public static final int WIDTH = 1920;
 	//  public static final int HEIGHT = 1080;
 
-	public UDPReceiver(int port) {
+	public UDPReceiver(int port) 
+	{
 
-		try {
+		try 
+		{
 			mySocket = new DatagramSocket(port);
 			mySocket.setSoTimeout(timeOut);        // wait for 5 second for data
-		} catch (SocketException e) {
+		} 
+		catch (SocketException e) 
+		{
 			e.printStackTrace();
 		}
 		thread = new Thread(this);
 	}
 
-	public void start() {
+	public void start() 
+	{
 		isRunning = true;
 		thread.start();
 	}
 
-
-
 	@Override
-	public void run() {
+	public void run() 
+	{
 		DatagramPacket packet;
-		while (isRunning) {
+		while (isRunning) 
+		{
 			/* buffer is filled with the data received */
 			try {
 				//            InetAddress address = InetAddress.getByName("127.0.0.1");
 				byte[] msg = new byte[64000];
-	
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				
 				packet = new DatagramPacket(msg, msg.length);
 				 mySocket.receive(packet);
